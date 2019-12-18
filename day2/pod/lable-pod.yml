@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: first-lable-pod
+  labels:
+    app: lable-app
+    environment: staging
+spec:
+  containers:
+    - name: ngix-con
+      image: nginx:alpine
