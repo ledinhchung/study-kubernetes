@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: config-map-pod
+spec:
+  containers:
+    - name: first-config-con
+      image: busybox
+      command: ['sh', '-c', "echo $(MY_FIRST_KEY) && sleep 3600"]
+      env:
+        - name: MY_FIRST_KEY
+          valueFrom: 
+            configMapKeyRef:
+              name: config-map
+              key: firstKey
+  restartPolicy: Never
