@@ -2,6 +2,9 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: first-lable-pod
+  annotations:
+    owner: ledinhchung.it@gmail.com
+    name: Chung Le
   labels:
     app: lable-app
     environment: staging
