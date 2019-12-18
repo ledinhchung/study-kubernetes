@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: config-map-mount-pod
+spec:
+  containers:
+    - name: first-config-con
+      image: busybox
+      command: ['sh', '-c', "echo $(cat /etc/config/firstKey) && sleep 3600"]
+      volumeMounts:
+        - name: config-volume
+          mountPath: /etc/config
+  volumes:
+    - name: config-volume
+      configMap:
+        name: config-map
+  restartPolicy: Never
